@@ -1,8 +1,9 @@
 import React from 'react';
-import CarteiraBox from './Carteira/CarteiraBox';
 import { AppBar, Checkbox, IconButton } from 'react-toolbox';
 import { Layout, NavDrawer, Panel, Sidebar } from 'react-toolbox';
-
+import Navigation from 'react-toolbox/lib/navigation';
+import Link from 'react-toolbox/lib/link';
+import CarteiraBox from './Carteira/CarteiraBox';
 
 export default class App extends React.Component {
   state = {
@@ -29,15 +30,18 @@ export default class App extends React.Component {
                 <NavDrawer active={this.state.drawerActive}
                     pinned={this.state.drawerPinned} permanentAt='xxxl'
                     onOverlayClick={ this.toggleDrawerActive }>
-                    <p>
-                        Navigation, account switcher, etc. go here.                        
+                    <p>                        
+                         <Navigation type='vertical'>
+                            <Link link={CarteiraBox} active label='Carteira' icon='inbox' />  
+                            
+                          
+                        </Navigation>                        
                     </p>
                 </NavDrawer>
                 <Panel>
                     <AppBar leftIcon='menu' onLeftIconClick={ this.toggleDrawerActive } />
                     <div style={{ flex: 1, overflowY: 'auto', padding: '1.8rem' }}>
-                        <h1>Main Content</h1>
-                        <CarteiraBox />
+                        <h1>Main Content</h1>                        
                         <p>Main content goes here.</p>
                         <Checkbox label='Pin drawer' checked={this.state.drawerPinned} onChange={this.toggleDrawerPinned} />
                         <Checkbox label='Show sidebar' checked={this.state.sidebarPinned} onChange={this.toggleSidebar} />
