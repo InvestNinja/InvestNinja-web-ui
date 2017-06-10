@@ -21,24 +21,24 @@ export default class CarteiraBox extends React.Component {
         this.adicionarCarteira = this.adicionarCarteira.bind(this);    
     }
 
-    setCodigoCarteira(value) {        
-        this.setState({"codigo" : value});
+    setCodigoCarteira(event) {                
+        this.setState({"codigo" : event.target.value});
     };
 
-    setDescricaoCarteira(value) {        
-        this.setState({"descricao" : value});
+    setDescricaoCarteira(event) {        
+        this.setState({"descricao" : event.target.value});
     };
 
-    setCotaInicial(value) {        
-        this.setState({"valorCotaInicial" : value});
+    setCotaInicial(event) {        
+        this.setState({"valorCotaInicial" : event.target.value});
     };
 
-    setSaldoInicial(value) {        
-        this.setState({"saldo" : value});
+    setSaldoInicial(event) {        
+        this.setState({"saldo" : event.target.value});
     };
 
-    setDataInicial(value) {        
-        this.setState({"dataCota" : value});
+    setDataInicial(moment) {            
+        this.setState({"dataCota" : moment.toDate()});
     };
 
     adicionarCarteira(event) {        

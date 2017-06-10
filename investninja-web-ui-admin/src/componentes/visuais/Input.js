@@ -21,7 +21,7 @@ export default class Input extends React.Component {
                         id={this.props.name} 
                         name={this.props.name}  
                         placeholder={this.props.placeholder} 
-                        className="typeahead scrollable tt-input col-sm-12" 
+                        className="col-sm-12" 
                         value={this.props.value}
                         onChange={this.props.onChange}/>                        
                 </div>

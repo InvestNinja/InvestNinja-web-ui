@@ -8,6 +8,8 @@ import "./assets/css/fonts.googleapis.com.css";
 import "./assets/css/fonts.googleapis.com.css";
 import "./assets/css/ace-skins.min.css";
 import "./assets/css/ace-rtl.min.css";
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
