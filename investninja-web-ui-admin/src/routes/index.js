@@ -26,6 +26,8 @@ import typography from './dashboardPages/typography';
 import blank from './dashboardPages/blank';
 import error from './error';
 
+import carteira from './dashboardPages/carteira';
+
 import Header from '../components/Header';
 
 export default [
@@ -44,7 +46,6 @@ export default [
     },
   },
 
-
   {
     path: '/',
 
@@ -52,8 +53,9 @@ export default [
     children: [
       home,
       // contact,
-      table,
-      button,
+      carteira,
+      table,      
+      button,      
       flotcharts,
       forms,
       grid,
@@ -73,7 +75,7 @@ export default [
     async action({ next, render, context }) {
       // console.log('inside dashboard');
       const component = await next();
-      // console.log('inside dasdboard component', component);
+      console.log('inside dasdboard component', component);
       if (component === undefined) return component;
       return render(
         <div>
