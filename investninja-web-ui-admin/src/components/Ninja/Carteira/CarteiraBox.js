@@ -1,51 +1,65 @@
 import React from 'react';
 import Carteira from './Carteira';
+import CarteiraPainel from './CarteiraPainel';
+import { PageHeader } from 'react-bootstrap';
 
 export default class CarteiraBox extends React.Component {
     
     constructor() {
         super();
         this.state = {
-            "codigo": "",
-            "descricao": "",            
-            "saldo": 0.0,
-            "valorMovimentacao": 0.0,
-            "dataCota": new Date()
+            "editando" : true,
+            "carteira" : {
+                "codigo": "",
+                "descricao": "",            
+                "saldo": 0.0,
+                "valorMovimentacao": 0.0,
+                "dataCota": new Date(),
+                "variacaoCotaPercentual" : 0,
+                "variacaoFinanceira" : 0
+            }
         };
-
+        
         this.setCodigoCarteira = this.setCodigoCarteira.bind(this);
         this.setDescricaoCarteira = this.setDescricaoCarteira.bind(this);
         this.setCotaInicial = this.setCotaInicial.bind(this);
         this.setSaldoInicial = this.setSaldoInicial.bind(this);
         this.setDataInicial = this.setDataInicial.bind(this);   
         this.adicionarCarteira = this.adicionarCarteira.bind(this);    
+        this.onEdit = this.onEdit.bind(this);
     }
 
-    setCodigoCarteira(value) {        
-        this.setState({"codigo" : value});
+    setCodigoCarteira(event) {                
+        this.state.carteira.codigo = event.target.value;
+        this.setState({"carteira" : this.state.carteira});
     };
 
-    setDescricaoCarteira(value) {        
-        this.setState({"descricao" : value});
+    setDescricaoCarteira(event) {        
+        this.state.carteira.descricao = event.target.value;
+        this.setState({"carteira" : this.state.carteira});
     };
 
-    setCotaInicial(value) {        
-        this.setState({"valorCotaInicial" : value});
+    setCotaInicial(event) {        
+        this.state.carteira.valorCotaInicial = event.target.value;
+        this.setState({"carteira" : this.state.carteira});
     };
 
-    setSaldoInicial(value) {        
-        this.setState({"saldo" : value});
+    setSaldoInicial(event) {        
+        this.state.carteira.saldo = event.target.value;
+        this.setState({"carteira" : this.state.carteira});
     };
 
-    setDataInicial(value) {        
-        this.setState({"dataCota" : value});
+    setDataInicial(event) {        
+        this.state.carteira.dataCota = event.target.value;
+        this.setState({"carteira" : this.state.carteira});
     };
 
     adicionarCarteira(event) {        
         event.preventDefault();
+
         const requestInfo = {
             method:'POST',
-            body:JSON.stringify(this.state),
+            body:JSON.stringify(this.state.carteira),
             headers: new Headers({
                 'Content-Type':'application/json',
                 'Accept': 'application/json' 
@@ -53,39 +67,47 @@ export default class CarteiraBox extends React.Component {
         };
 
         fetch('http://localhost:5000/api/carteiras', requestInfo)
-            .then(function(response){
-                response
-                    .json()
-                    .then(function(data) {
-                        console.log(data);
-                    });
+            .then(response => {
+                if (response.ok) {
+                    this.setState({"editando" : false});
+                    console.log("Carteira salva com sucesso");
+                } else {
+                    console.log(response);
+                }
             }).catch(function(err){
-                console.error('Failed retrieving information', err);
+                console.error(err.message, err);
             });
-
-        console.log(this.state);
+                
     };
+
+    componentDidMount() {     
+        if (this.props.carteira) {
+            this.state.carteira = this.props.carteira;
+            this.setState({"carteira" : this.state.carteira});
+            this.setState({"editando" : false});
+        }        
+    }
+
+    onEdit(carteira) {
+        this.state.carteira = carteira;
+        this.setState({"carteira" : this.state.carteira});
+        this.setState({"editando" : !this.state.editando});
+    }   
 
     render () {
         return (
-            <div>
-                <Carteira 
-                    codigoCarteira = {this.state.codigo}
-                    setCodigoCarteira = {this.setCodigoCarteira}
-
-                    descricaoCarteira = {this.state.descricao}
-                    setDescricaoCarteira = {this.setDescricaoCarteira}
-
-                    cotaInicial = {this.state.valorCotaInicial}
-                    setCotaInicial = {this.setCotaInicial}
-
-                    saldoInicial = {this.state.saldo}
-                    setSaldoInicial = {this.setSaldoInicial}
-
-                    dataInicial = {this.state.dataCota}
-                    setDataInicial = {this.setDataInicial}
+            <div>                
+                <CarteiraPainel 
+                    carteira = {this.state.carteira}
                     
-                    adicionarCarteira = {this.adicionarCarteira}/>
+                    setCodigoCarteira = {this.setCodigoCarteira}                    
+                    setDescricaoCarteira = {this.setDescricaoCarteira}
+                    setCotaInicial = {this.setCotaInicial}
+                    setSaldoInicial = {this.setSaldoInicial}                    
+                    setDataInicial = {this.setDataInicial}
+                    adicionarCarteira = {this.adicionarCarteira}
+                    onEdit = {this.onEdit}
+                    editando = {this.state.editando}/>
             </div>
         );
     }

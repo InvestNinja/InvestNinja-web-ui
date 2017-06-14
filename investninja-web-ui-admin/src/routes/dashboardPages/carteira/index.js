@@ -1,12 +1,12 @@
 import React from 'react';
-import CarteiraBox from '../../../components/Ninja/Carteira/CarteiraBox';
+import CarteiraCards from '../../../components/Ninja/Carteira/CarteiraCards';
 
 export default {
 
   path: '/carteiras',
 
   action() {
-    return <CarteiraBox />;
+    return <CarteiraCards />;
   },
 
 };

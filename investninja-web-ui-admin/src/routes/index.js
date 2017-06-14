@@ -75,7 +75,7 @@ export default [
     async action({ next, render, context }) {
       // console.log('inside dashboard');
       const component = await next();
-      console.log('inside dasdboard component', component);
+      // console.log('inside dasdboard component', component);
       if (component === undefined) return component;
       return render(
         <div>
