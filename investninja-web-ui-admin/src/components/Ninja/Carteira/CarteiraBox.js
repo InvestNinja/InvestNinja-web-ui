@@ -85,6 +85,10 @@ export default class CarteiraBox extends React.Component {
             this.state.carteira = this.props.carteira;
             this.setState({"carteira" : this.state.carteira});
             this.setState({"editando" : false});
+            if (this.state.carteira.novo) {
+                this.setState({"editando" : true});
+            }
+            
         }        
     }
 

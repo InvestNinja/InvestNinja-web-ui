@@ -47,10 +47,10 @@ export default class Carteira extends React.Component {
                   </InputGroup>
                 </FormGroup>
 
-                {/*<FormGroup controlId="formBasicText" >
+                <FormGroup controlId="formBasicText" >
                   <ControlLabel>Data inicial</ControlLabel>
                   <FormControl type="date" value={this.props.carteira.dataCota} onChange={this.props.setDataInicial}/>                                    
-                </FormGroup>   */}
+                </FormGroup>   
 
                 <Button type="submit"  bsStyle="primary" bsSize="large" block>Salvar</Button>                         
               </Form>           
