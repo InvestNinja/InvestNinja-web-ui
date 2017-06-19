@@ -9,6 +9,6 @@ TODO:
 - [ ] Apagar Carteira
 - [ ] Detalhes da carteira
   - [ ] Inserir Itens
-  - [ ] Inserir Movimentações
+  - [ ] Inserir Itens
   - [ ] Apagar Itens
 - [ ] Editar descrição da carteira
