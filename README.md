@@ -8,7 +8,11 @@ TODO:
 - [ ] Agrupar Carteira
 - [ ] Apagar Carteira
 - [ ] Detalhes da carteira
+    - [ ] Pagina de detalhes da carteira
     - [ ] Inserir Itens    
     - [ ] Apagar Itens
     - [ ] Inserir movimentações
+    - [ ] Gráfico de rentabilidade
 - [ ] Editar descrição da carteira
+- [ ] Dashboard de rentablidade
+- [ ] Benchmark de carteiras e indices
