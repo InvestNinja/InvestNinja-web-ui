@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Panel, Button } from 'react-bootstrap';
 import Carteira from './Carteira';
 import CarteiraResumo from './CarteiraResumo';
+import history from '../../../core/history';
 
 export default class CarteiraPainel extends React.Component {
 
@@ -14,14 +15,28 @@ export default class CarteiraPainel extends React.Component {
             <Panel 
                 header={<span>{this.props.carteira.codigo}</span>} className="panel-primary"
                 footer={
-                    <form onSubmit={(event) => {
-                            event.preventDefault();                            
-                            this.props.onEdit(this.props.carteira);
-                        }}>
-                        <Button type = "submit" bsSize="large" bsStyle="primary" className="btn-circle">
-                            <i className="fa fa-list" />
-                        </Button>
-                    </form>
+                    <div className = "row">
+                        <div className="col-md-6 text-left">   
+                            <form onSubmit={(event) => {
+                                    event.preventDefault();                            
+                                    this.props.onEdit(this.props.carteira);
+                                }}>
+                                <Button type = "submit" bsSize="large" bsStyle="primary" className="btn-circle">
+                                    <i className="fa fa-list" />
+                                </Button>
+                            </form>
+                        </div>
+                        <div className="col-md-6 text-right">
+                            <form onSubmit={(event) => {
+                                    event.preventDefault();                            
+                                    history.push(`/carteira-detalhes?codigoCarteira=${this.props.carteira.codigo}`)                                    
+                                }}>
+                                <Button type = "submit" bsSize="large" bsStyle="primary" className="btn-circle">
+                                    <i className="fa fa-pencil-square" />
+                                </Button>
+                            </form>
+                        </div>
+                    </div>
                 }>
             <div>     
                 {

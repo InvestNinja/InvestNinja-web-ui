@@ -54,7 +54,7 @@ export default class CarteiraCards extends React.Component {
     }
 
     novaCarteira(event) {
-        event.preventDefault();
+        event.preventDefault();    
         let carteiraVazia = this.criarCarteiraVazia();        
         let carteiras = this.state.carteiras;
         carteiras.push(carteiraVazia);

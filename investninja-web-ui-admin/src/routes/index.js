@@ -27,6 +27,7 @@ import blank from './dashboardPages/blank';
 import error from './error';
 
 import carteira from './dashboardPages/carteira';
+import carteiraDetalhe from './dashboardPages/carteiraDetalhe';
 
 import Header from '../components/Header';
 
@@ -54,6 +55,7 @@ export default [
       home,
       // contact,
       carteira,
+      carteiraDetalhe,
       table,      
       button,      
       flotcharts,

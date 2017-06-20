@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import history from '../../core/history';
-import CarteiraBox from '..//Ninja/Carteira/CarteiraBox';
 
 class Sidebar extends Component {
 
@@ -37,7 +36,7 @@ class Sidebar extends Component {
                 <i className="fa fa-dashboard fa-fw" /> &nbsp;Carteiras
               </a>
             </li>
-
+            
             <li>
               <a href="" onClick={(e) => { e.preventDefault(); history.push('/'); }} >
                 <i className="fa fa-dashboard fa-fw" /> &nbsp;Dashboard
