@@ -8,7 +8,7 @@ TODO:
 - [ ] Agrupar Carteira
 - [ ] Apagar Carteira
 - [ ] Detalhes da carteira
-    - [ ] Pagina de detalhes da carteira
+    - [x] Pagina de detalhes da carteira
     - [ ] Inserir Itens    
     - [ ] Apagar Itens
     - [ ] Inserir movimentações
