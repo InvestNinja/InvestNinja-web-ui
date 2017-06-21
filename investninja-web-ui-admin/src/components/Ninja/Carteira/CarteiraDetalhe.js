@@ -13,8 +13,8 @@ export default class CarteiraDetalhe extends React.Component {
 
     componentDidMount() {        
         const codigoCarteira = history.getCurrentLocation().query.codigoCarteira;
-        // fetch(`http://localhost:5000/api/carteiras/${codigoCarteira}`)
-        fetch("http://localhost:5000/api/carteiras/payload/teste")
+        fetch(`http://localhost:5000/api/carteiras/${codigoCarteira}`)
+        // fetch("http://localhost:5000/api/carteiras/payload/teste")
             .then(response => {
                 if (response.ok) {
                     response
