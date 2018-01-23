@@ -5,7 +5,7 @@ export default {
 
   path: '/carteira-detalhes',
 
-  action() {
+  action() {    
     return <CarteiraDetalhe />;
   },
 

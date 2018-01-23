@@ -48,7 +48,7 @@ function displayFlotCharts(props, context) {
     <div>
       <div className="row">
         <div className="col-lg-12">
-          <PageHeader>Flot + achei</PageHeader>
+          <PageHeader>Flot</PageHeader>
         </div>
       </div>
 

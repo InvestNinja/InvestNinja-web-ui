@@ -5,7 +5,7 @@ export default {
 
   path: '/carteiras',
 
-  action() {
+  action() {    
     return <CarteiraCards />;
   },
 

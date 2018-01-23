@@ -9,11 +9,11 @@ export default class CarteiraCards extends React.Component {
     
     constructor() {
         super();
-        this.state = {carteiras : [], linhas : []};        
+        this.state = {carteiras : [], linhas : []};      
     }
 
     componentDidMount() {
-        fetch('http://localhost:5000/api/carteiras')
+        fetch('http://investninja.azurewebsites.net/api/carteiras')
             .then(response => {
                 if (response.ok) {
                     response

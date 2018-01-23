@@ -32,12 +32,6 @@ class Sidebar extends Component {
             </li>
 
             <li>
-              <a href="" onClick={(e) => { e.preventDefault(); history.push('/carteiras'); }} >
-                <i className="fa fa-dashboard fa-fw" /> &nbsp;Carteiras
-              </a>
-            </li>
-            
-            <li>
               <a href="" onClick={(e) => { e.preventDefault(); history.push('/'); }} >
                 <i className="fa fa-dashboard fa-fw" /> &nbsp;Dashboard
               </a>
@@ -65,7 +59,7 @@ class Sidebar extends Component {
               >
                 <li>
                   <a href="" onClick={(e) => { e.preventDefault(); history.push('/flotcharts'); }} >
-                    FlotCharts + Biscoito
+                    FlotCharts
                   </a>
                 </li>
                 <li>

@@ -13,8 +13,7 @@ export default class CarteiraDetalhe extends React.Component {
 
     componentDidMount() {        
         const codigoCarteira = history.getCurrentLocation().query.codigoCarteira;
-        fetch(`http://localhost:5000/api/carteiras/${codigoCarteira}`)
-        // fetch("http://localhost:5000/api/carteiras/payload/teste")
+        fetch(`http://investninja.azurewebsites.net/api/carteiras/${codigoCarteira}`)        
             .then(response => {
                 if (response.ok) {
                     response
@@ -103,7 +102,7 @@ export default class CarteiraDetalhe extends React.Component {
 
                 <div className="row">
                     <div className="col-lg-12">
-                    <Panel header={<span>Histórico</span>} >
+                        <h4>Histórico</h4>
                         <Accordion>
                             {   this.state.carteira.itens ?                             
                                 this.state.carteira.itens.map(item => 
@@ -136,8 +135,7 @@ export default class CarteiraDetalhe extends React.Component {
                                     </Panel>) 
                                 : "carregando..."                             
                             }                        
-                        </Accordion>
-                    </Panel>
+                        </Accordion>                    
                     </div>
                 </div>        
             </div>
