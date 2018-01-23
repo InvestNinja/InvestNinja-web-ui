@@ -16,3 +16,4 @@ TODO:
 - [ ] Editar descrição da carteira
 - [ ] Dashboard de rentablidade
 - [ ] Benchmark de carteiras e indices
+- [ ] Login
